@@ -1,8 +1,9 @@
 body {
   background-color: #fff; 
   padding:50px;
-  font: 16px/1.5 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+  font: 16px/1.6 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
   color:#555;
+  letter-spacing: .02em;
   font-weight:400;
 }
 
