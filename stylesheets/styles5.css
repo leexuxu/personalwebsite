@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700");
+@import url("font-awesome.min.css");
+
 body {
   background-color: #fff; 
   padding:50px;
-  font: 16px/1.6 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.85em;
   color:#555;
   letter-spacing: .02em;
   font-weight:400;
