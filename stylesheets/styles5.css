@@ -4,7 +4,8 @@
 body {
   background-color: #fff; 
   padding:50px;
-  font: inherit;
+  font: 'Open Sans', sans-serif;
+  line-height: 1.85em;
   color:#555;
   letter-spacing: .02em;
   font-weight:400;
