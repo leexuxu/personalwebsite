@@ -199,6 +199,7 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+  line-height: 1.5em;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
