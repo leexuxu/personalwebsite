@@ -1,88 +1,579 @@
-	
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xu Xu</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic");
 
-<html>
+    :root {
+      --bg: #ffffff;
+      --text: #777777;
+      --heading: #555555;
+      --strong: #222222;
+      --line: #e5e5e5;
+      --soft: #f8f8f8;
+      --link: #98c1d9;
+      --link-hover: #a7d3a6;
+      --nav-bg: #f4f4f4;
+      --nav-border: #e0e0e0;
+      --max: 910px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Xu Xu</title>
-    <link rel="stylesheet" href="stylesheets/styles6.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <style>
-      #profile-img {
-        margin-bottom: 20px;
-      }
-      @media screen and (max-width: 767px) {
-        .hide-on-mobile { display: none; }  /* hide on small screens */
-      }
-      p.small {
-	      line-height: 2;
-	      }
-    </style>
+    body {
+      background-color: var(--bg);
+      padding: 50px;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.75em;
+      color: var(--text);
+      letter-spacing: .01em;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--heading);
+      margin: 0 0 20px;
+      font-weight: bold;
+    }
+
+    h1, h2, h3 { line-height: 1.1; }
+    h1 { font-size: 28px; }
+
+    p, ul, ol, table, pre, dl { margin: 0 0 20px; }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    strong { color: var(--strong); font-weight: 500; }
+    em { font-style: italic; }
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43091507-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-43091507-2');
-</script>
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <a href="/"><h1>XU XU</h1></a>
-        <p>
-	      <a href="https://scholar.google.com/citations?user=-b5MDbkAAAAJ&hl=en">Google Scholar</a><br/>
-          Comparative Politics <br/>
-          Political Economy <br/>
-          Methodology
-        </p>
-        <img id="profile-img" class="hide-on-mobile" src="/xuxu/xuxu02.jpg" alt="Xu Xu Profile Photo" height="159" width="159">
-        <p class="view"><a href="/">Welcome </a></p>
-        <p class="view"><a href="/bookproject.html">Book Project </a></p>
-        <p class="view"><a href="/research.html">Research </a></p>
-        <p class="view"><a href="/teaching.html">Teaching </a></p>
-        <p class="view"><a href="/xuxu/xucv.pdf">CV </a></p>
-        <p> 
-	      <small>
-            Email: xx2728 [at] princeton.edu<br/>
-            Site hosted by GitHub
-          </small>
-	    </p>        
-        
-      </header>
-      <section>
-
-      <h1 id="Welcome">WELCOME</h1>
-      <p>
-	  <img src="/xuxu/background2.jpg" alt="Forbidden City"></p>
-<p>
-I am an Assistant Professor in Princeton's Department of Politics and School of Public and International Affairs. I received a Ph.D. in Political Science from the Pennsylvania State University in 2019 and was a postdoctoral research fellow at Stanford University from 2020 to 2021.</p>
-
-<p>
-I study digital authoritarianism, political repression, and the political economy of development. While I have published on authoritarian regimes from a comparative perspective, I have expertise in Chinese Politics. Methodologically, I am interested in experiments, causal inference, and game theory. </p>
-
-<p>
-My work has been published, or will soon appear, in <em> the American Journal of Political Science</em>, <em>the Journal of Politics</em>, <em> Comparative Political Studies</em>, <em> PNAS Nexus</em>, <em> the Journal of Law, Economics, and Organization</em>, and <em>the Journal of Comparative Economics</em>, among other peer reviewed journals. My dissertation, "Authoritarian Control in the Age of Digital Surveillance", was awarded the 2020 Best Dissertation in the Area of Information Technology and Politics by the American Political Science Association (APSA).</p>
+    .book-image {
+      display: block;
+      width: 600px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 0 20px;
+      border-radius: 5px;
+    }
 
 
+    .topbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin-bottom: 30px;
+    }
 
-      </section>
-      <footer>
-      </footer>
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--heading);
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.1;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--heading); }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+  font-size: 18px;
+  letter-spacing: .01em;
+}
+
+nav a {
+  color: #98c1d9;
+  text-transform: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover { color: #a7d3a6; text-decoration: none; }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+      padding: 0 0 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-card {
+      line-height: 1.5em;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      border: 0;
+      background: var(--soft);
+    }
+
+    .contact-block {
+      margin-top: 20px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5em;
+    }
+
+    .contact-block p { margin: 0 0 20px; }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--text);
+      font-size: inherit;
+      letter-spacing: .01em;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+      font-size: inherit;
+      line-height: 1.75em;
+      color: var(--text);
+      max-width: none;
+      font-weight: 400;
+    }
+
+    .quick-links {
+        display: inline-flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+  font-size: 14px;
+  letter-spacing: .01em;
+    }
+
+    .quick-links a {
+  color: #98c1d9;
+  text-transform: none;
+  text-decoration: none;
+  font-weight: bold;
+    }
+
+    .quick-links a:last-child { border-right: 0; }
+    .quick-links a:hover { color: #a7d3a6; text-decoration: none; }
+
+    section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 0;
+    }
+
+    .section-intro {
+      color: var(--text);
+      margin: 0 0 20px;
+      max-width: none;
+    }
+
+    .feature {
+      margin: 0;
+      padding: 18px 20px 1px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--soft);
+    }
+
+    .feature .label {
+      margin: 0 0 20px;
+      color: var(--text);
+      font-size: inherit;
+      letter-spacing: .01em;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .feature h3 {
+      margin: 0 0 20px;
+      color: var(--heading);
+      line-height: 1.1;
+      font-weight: bold;
+    }
+
+    .papers { margin-top: 0; }
+
+    .paper-section-title {
+      margin: 0 0 20px;
+      padding-top: 0;
+      color: var(--heading);
+      font-size: 18px;
+      line-height: 1.1;
+      font-weight: bold;
+    }
+
+    .paper-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+
+    .paper {
+      padding: 0 0 12px;
+    }
+
+    .citation {
+      margin: 0 0 20px;
+      color: var(--text);
+      line-height: 1.75em;
+    }
+
+    .paper-links {
+      color: var(--text);
+      white-space: normal;
+    }
+
+    .collapsible {
+    background-color: #98c1d9;
+    color: white;
+    cursor: pointer;
+    padding: 2px;
+    /*width: 10%;*/
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 12px;
+    }
+
+    .collapsible b { color: #f4f4f4; font-weight: bold; }
+
+    .active,
+    .collapsible:hover {
+    background-color: #a7d3a6;
+    }
+
+    .active b,
+    .collapsible:hover b { color: #f4f4f4; }
+
+    .content {
+      display: none;
+      overflow: hidden;
+      max-width: none;
+      margin: 0 0 20px;
+      padding: 18px 20px 1px;
+      background-color: #fff;
+      /*border: 1px solid var(--line);*/
+      border-radius: 5px;
+      color: var(--text);
+      font-size: inherit;
+      line-height: 1.75em;
+    }
+
+    .content p { margin: 0 0 20px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .compact-list {
+      margin: 0 0 20px;
+      padding-left: 20px;
+      list-style: disc;
+    }
+
+    .compact-list li {
+      padding: 0;
+      border-bottom: 0;
+      margin: 0 0 8px;
+    }
+
+    .footer {
+      color: var(--text);
+      font-size: 12px;
+      padding-top: 30px;
+      line-height: 1.15em;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    @media print, screen and (max-width: 960px) {
+      body { padding: 30px; }
+      .topbar-inner, .page { width: auto; max-width: none; margin: 0; }
+      .topbar-inner { display: block; }
+      .brand { display: block; margin-bottom: 20px; }
+      nav { display: inline-flex; }
+      .hero, .section-head, .two-col { grid-template-columns: 1fr; gap: 20px; }
+      .profile-card { max-width: 270px; }
+    }
+
+    @media print, screen and (max-width: 480px) {
+      body { padding: 15px; }
+      nav, .quick-links { width: 100%; display: flex; }
+      nav a, .quick-links a { flex: 1 1 auto; min-width: 0; padding-left: 8px; padding-right: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">Xu Xu<span>:</span></a>
+      <nav aria-label="Main navigation"><a href="#welcome">Welcome</a><a href="#book">Book Project</a><a href="#paper">Papers</a><a href="#teaching">Teaching</a><a href="https://xu-xu.net/xuxu/xucv.pdf">CV</a></nav>
     </div>
-    <script src="/assets/js/scale.fix.js"></script>
+  </header>
 
+  <main class="page" id="top">
+    <section class="hero" id="welcome" aria-label="Introduction">
+      <aside class="profile-card" aria-label="Profile and contact">
+        <img class="portrait" src="https://xu-xu.net/xuxu/xuxu02.jpg" alt="Xu Xu profile photo" />
+        <div class="contact-block">
+          <p><strong>Xu Xu</strong></p>
+          <p>Assistant Professor<br />Department of Politics & School of Public and International Affairs<br />Princeton University</p>
+          <p>Email: xx2728 [at] princeton.edu</p>
+          <p><a href="https://scholar.google.com/citations?user=FSmVa78AAAAJ&amp;hl=en">Google Scholar</a></p>
+        </div>
+      </aside>
 
-  
-  </body>
+      <div>
+        <p class="eyebrow">Comparative Politics · Political Economy · Methodology</p>
+        <h1>Authoritarian control, surveillance, and state power.</h1>
+        <p class="subtitle">Welcome to my webpage.</p>
+
+        <p>I study how authoritarian states use information, coercion, and material incentives to govern society. My work connects comparative politics, political economy, and causal inference, with a substantive focus on China and digital authoritarianism.</p>
+
+        <p>My work has been published, or will soon appear, in the <em>American Journal of Political Science</em>, the <em>Journal of Politics</em>, <em>Comparative Political Studies</em>, <em>PNAS Nexus</em>, the <em>Journal of Law, Economics, and Organization</em>, and the <em>Journal of Comparative Economics</em>, among other peer reviewed journals.</p>
+
+        <p>My dissertation, "Authoritarian Control in the Age of Digital Surveillance", was awarded the 2020 Best Dissertation in the Area of Information Technology and Politics by the American Political Science Association (APSA).</p>
+
+        <div class="quick-links" aria-label="Quick links">
+          <a href="#book">Book Project</a>
+          <a href="#research">Research</a>
+          <a href="#teaching">Teaching</a>
+          <a href="https://xu-xu.net/xuxu/xucv.pdf">CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="section-head">
+        <h2>Book Project</h2>
+        <p class="section-intro">A book-length project at the center of my research agenda on surveillance, repression, and authoritarian governance.</p>
+      </div>
+
+      <div class="feature">
+        <p class="label">Book project</p>
+        <p><img alt="Surveillance Camera" class="book-image" src="https://xu-xu.net/xuxu/surveillance1.jpg"/></p>
+        <h3>Surveillance Authoritarianism: How Digital Technology Transforms Political Control in China</h3>
+        <p>This book examines how digital surveillance technologies are reshaping the ways authoritarian governments control citizens. Focusing on China, the book asks why the expansion of mass surveillance has not generated the levels of fear or public backlash often associated with traditional surveillance states. To answer this question, the book examines police digital surveillance, social credit systems, and COVID-19 health surveillance, using original data and causal research designs, including subnational panels, survey and online experiments, text analysis of state media, archive work, and interviews in China. It also uses East Germany’s Stasi as a benchmark for traditional in-person surveillance. The project contributes to debates on authoritarian control, state repression, and digital governance.</p>
+        <!--<p><a href="https://xu-xu.net/bookproject.html">Read more about the book project</a></p>-->
+      </div>
+    </section>
+
+    <section id="paper">
+      <div class="section-head">
+        <h2>Papers</h2>
+        <div class="section-intro">
+        <p>
+        My research examines how authoritarian states exercise power over society, with a focus on how digital technologies reshape surveillance, repression, and governance. My work combines natural and field experiments, large-scale digital data, archival research, and fieldwork in China.
+        </p>
+
+        <ul>
+        <li>Surveillance and repression</li>
+        <li>Moral governance in digital authoritarian states</li>
+        <li>Politics of artificial intelligence</li>
+        <li>Political economy of authoritarian governance</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="papers">
+        <h3 class="paper-section-title">Peer Reviewed Articles</h3>
+        <ol class="paper-list">
+          <li class="paper">
+            <p class="citation">Feng, Bo, Qiwei He, Xin Jin, and Xu Xu. 2026. “State Power Attracts Talent: Evidence from China’s Civil Servant Fever” <em>Comparative Political Studies</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/civilservant.pdf">Pre-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Why are government jobs so attractive to talented individuals in many non-democratic countries? We identify state power expansion as a key factor. We analyze the impact of China's recent value-added tax reform, an expansion of taxation power, on citizens' preferences for tax administration positions revealed by participation in the National Civil Service Exam.</p><p>Using a difference-in-differences approach that leverages pre-reform subnational tax composition variations and a dataset of 166,012 government job openings from 2010 to 2021, we find that the reform has attracted more and higher-ability individuals to tax-related state positions. The effect is particularly strong for positions involving greater regulatory power or those located in prefectures with higher graft opportunities.</p><p>An original survey reveals that exam takers perceive increased power and benefits in tax agencies after the reform. Evidence from Chinese General Social Surveys suggests the talent drawn to the state likely comes from the private sector.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Pan, Jennifer and Xu Xu. 2026. “Political Censorship in Large Language Models Originating from China.” <em>PNAS Nexus</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/llmcensorship.pdf">Pre-print</a>, <a href="https://xu-xu.net/xuxu/llmappendix.pdf">SI</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>A growing body of research on large language models (LLMs) has identified various biases, primarily in contexts where biases reflect societal patterns. This paper focuses on a different source of bias in LLMs---government censorship. By comparing foundation models developed in China and those from outside China, we find substantially higher rates of refusal to respond, shorter responses, and inaccurate responses to a battery of 145 political questions in China-originating models.</p><p>These disparities diminish for less-sensitive prompts, showing that technological and market disparities cannot fully explain this divergence. While all models exhibit higher refusal to respond rates with Chinese-language prompts than English ones, language differences are less pronounced than disparities between China-originating and non-China-originating models.</p><p>We caution that our study is observational and cross-sectional and does not establish a causal linkage between regulatory pressures and censorship behaviors of China-originating LLMs, but these results suggest that censorship through government regulation requiring companies to restrict political content may be an important factor contributing to political bias in LLMs.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Lu, Yingdan, Jennifer Pan, Xu Xu, and Yiqing Xu. 2025. “Decentralized Propaganda in the Era of Digital Media: The Massive Presence of the Chinese State on Douyin” <em>American Journal of Political Science</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/douyinpropaganda.pdf">Pre-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>The rise of social media in the digital era poses unprecedented challenges to authoritarian regimes that aim to influence public attitudes and behaviors. To address these challenges, we argue that authoritarian regimes have adopted a decentralized approach to produce and disseminate propaganda on social media. In this model, tens of thousands of government workers and insiders are mobilized to produce and disseminate propaganda, and content flows in a multi- directional, rather than a top-down manner.</p><p>We empirically demonstrate the existence of this new model in China by creating a novel dataset of over five million videos from over 18,000 regime-affiliated accounts on Douyin, a popular social media platform in China. This paper supplements prevailing understandings of propaganda by showing theoretically and empirically how digital technologies are changing not only the content of propaganda, but also the way in which propaganda materials are produced and disseminated.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Pan, Jennifer, Xu Xu, and Yiqing Xu. 2025. “Disguised Repression: Targeting Opponents with Non-Political Crimes to Undermine Dissent” <em>The Journal of Politics</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/disguised.pdf">Pre-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Why do authoritarian regimes charge political opponents with non-political crimes when they can levy charges directly related to opponents' political activism? We argue that doing so disguises political repression and undermines the moral authority of opponents, minimizing backlash and mobilization.</p><p>To test this argument, we conduct a survey experiment, which shows that disguised repression decreases perceptions of dissidents' morality, decreases people's willingness to engage in dissent on behalf of the dissident, and increases support for repression of the dissident. We then assess the external validity of the argument by analyzing millions of Chinese social media posts made before and after a large crackdown of vocal government critics in China in 2013.</p><p>We find that individuals with larger online followings are more likely to be charged with non-political crimes, and those charged with non-political crimes are less likely to receive public sympathy and support.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Chen, Ted Hsuan Yun, Christoper J. Fariss, Hwayong Shin, and Xu Xu. 2024. “Disaster Experience Mitigates the Partisan Divide on Climate Change: Evidence from Texas.” <em>Global Environmental Change</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/texasfloodstorm.pdf">Pre-print</a></span>.</p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Despite the abundance of real world events and scientific information linking the worsening extreme weather to climate change, public attitudes toward climate issues in the United States remain highly divided along partisan lines. We compare the effect of different stimuli linking extreme weather events to climate change -- personal experiences and scientific information -- in reducing the partisan gap.</p><p>A two-wave survey corresponding to multiple extreme weather events in Texas, including a natural experiment with power outage data from the 2021 North American Winter Storms, shows that personal experiences with extreme weather reduce the partisan divide in climate beliefs and polices. Scientific information attributing extreme weather events to climate change, however, had no effect in closing the partisan gap.</p><p>These findings suggest that extreme climate events and disaster experiences force vividly tangible information about the proximity and severity of climate change on exposed individuals, prompting belief-updating and preference-shifting toward pro-climate policies.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Xu, Xu, Genia Kostka, and Xun Cao. 2022. “Information Control and Public Support for Social Credit Systems in China.” <em>The Journal of Politics</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/surveillancesocialcredit.pdf">Pre-print</a> <a href="https://xu-xu.net/xuxu/surveillancesocialcreditappendix.pdf">Appendix</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Critics see China's social credit system (SCS) as a tool of surveillance and repression. Yet opinion surveys in China find considerable public support for the SCS. We explain this puzzle by focusing on citizens' lack of knowledge regarding the repressive nature of digital surveillance in dictatorships, which can be attributed to (1) invisible and targeted repression associated with digital surveillance and (2) government propaganda and censorship further concealing its repressive potential.</p><p>A field survey experiment on 750 college students in three Chinese regions shows that revealing the SCS's repressive potential significantly reduces support for the system, but emphasizing its social-order-maintenance function does not increase support. Observational evidence from the field survey and a nationwide survey of 2,028 Chinese netizens show that the support is higher if citizens knew about the SCS through state media.</p><p>Our findings highlight the role of information and framing in shaping public opinion on digital surveillance.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Su, Zheng, Xu, Xu, and Xun Cao. 2022. “What explains popular support for government monitoring in China?” <em>Journal of Information Technology &amp; Politics</em> <span class="paper-links"><a href="https://xu-xu.net/xuxu/surveillancesupport.pdf">Pre-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Discussions of China's recent massive surveillance initiative often present it as evidence of a path to an Orwellian state with omnipresent fear and discontent among its citizens. However, based on a 2018 survey of a nationally representative sample, this paper finds that a large majority of Chinese citizens support various forms of state surveillance. CCTV surveillance receives the highest support (82.2%), followed by email and Internet monitoring (61.1%).</p><p>Even the most intrusive policy — collecting intelligence on everyone in the country — receives support from more than 53% of citizens. Further, support for surveillance is positively associated with an individual's preference for social stability, regime satisfaction, and, to a lesser extent, trust in government. Unlike in Western societies, concern about terrorism does not have any significant correlations with citizens' attitudes toward surveillance in China.</p><p>These findings might help explain why the Chinese state can expand its surveillance capacity without much open resistance from the public.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Chen, Zhiyuan, Xin Jin, and Xu Xu. 2021. “Is a Crackdown on Corruption Really Good for the Economy? Firm-level Evidence From China.” <em>Journal of Law, Economics, and Organization</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/corruptioncrackdown.pdf">Pre-print</a>, <a href="https://academic.oup.com/jleo/advance-article/doi/10.1093/jleo/ewaa014/5903518?guestAccessKey=97c61019-7c44-4ee3-9a5b-98dbf377d39d">Online First</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>We study the impact of anticorruption efforts on firm performance, exploiting an unanticipated corruption crackdown in China’s Heilongjiang province in 2004. We compare firms in the affected regions with those in other inland regions before and after the crackdown. Our main finding is an overall negative impact of the crackdown on firm productivity and entry rates. Further, these negative impacts are mainly experienced by private and foreign firms, while state-owned firms are mostly unaffected.</p><p>We also present evidence concerning two potential explanations for our findings. First, the corruption crackdown may have limited bribery opportunities employed by private firms. Second, the corruption crackdown may have interfered with personal connections between private firms and government officials to a greater extent than institutional connections between state-owned firms and the government.</p><p>Overall, our findings suggest that corruption crackdowns may not restore efficiency in the economy, but instead lead to worse economic outcomes, at least in the short run.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Xu, Xu. 2021. “To Repress or To Co-opt? Authoritarian Control in the Age of Digital Surveillance.” <em>American Journal of Political Science</em>. <span class="paper-links"><a href="https://xu-xu.net/xuxu/surveillancerepression.pdf">Pre-print</a>, <a href="https://dx.doi.org/10.1111/ajps.12514">Post-print</a>, <a href="https://xu-xu.net/xuxu/surveillancerepressionappendix.pdf">Appendix</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>This paper studies the consequences of digital surveillance in dictatorships. I first develop an informational theory of repression and co-optation. I argue that digital surveillance resolves dictators’ information problem of not knowing individual citizens’ true anti-regime sentiments. By identifying radical opponents, digital surveillance enables dictators to substitute targeted repression for non-exclusive co-optation to forestall coordinated uprisings.</p><p>My theory implies that as digital surveillance technologies advance, we should observe a rise in targeted repression and a decline in universal redistribution. Using a difference-in-differences design that exploits temporal variation in digital surveillance systems among Chinese counties, I find that surveillance increases local governments’ public security expenditure and arrests of political activists but decreases public goods provision.</p><p>My theory and evidence suggest that improvements in governments’ information make citizens worse off in dictatorships.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Frantz, Erica, Andrea Kendall-Taylor, Joseph Wright, and Xu Xu. 2020. “Personalization of Power and Repression in Dictatorships.” <em>The Journal of Politics</em>. <span class="paper-links"><a href="https://www.journals.uchicago.edu/doi/abs/10.1086/706049?mobileUi=0">Post-print</a>, <a href="https://xu-xu.net/xuxu/personalismappendix.pdf">Appendix</a>, <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FQNMUA1">Reproduction Files</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>This article uses new data measuring gradations of personalism in authoritarian regimes to evaluate the relationship between concentration of power and patterns of repression. It shows that the personalization of power in dictatorships leads to an increase in repression. Given the rise in personalism we are witnessing globally, the findings of this study imply that repression is likely to become more prevalent in dictatorships as a consequence.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Cao, Xun, Genia Kostka, and Xu Xu. 2019. “Environmental Political Business Cycles: The Case of PM2.5 Air Pollution in Chinese Cities.” <em>Environmental Science and Policy</em>. 93: 92-100. <span class="paper-links"><a href="https://xu-xu.net/xuxu/environment.pdf">Pre-print</a>, <a href="https://xu-xu.net/xuxu/environmentappendix.pdf">Appendix</a>, <a href="https://xu-xu.net/xuxu/environmentslides.pdf">Slides(2015 APSA)</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Chinese local leaders’ behaviors are driven by a career incentive structure in which those delivering better performances are more likely to be promoted. Local leaders signal competence when their superiors actively collect evidence to evaluate their performances: these are years leading to the end of a five-year term.</p><p>To create better economic performances, local leaders lessen the enforcement of environmental regulations to reduce local industries’ production costs and/or to attract firms from other jurisdictions. Such selective enforcement creates an environmental political business cycle in which pollution increases in years leading to the year of leader turnover.</p><p>The empirical analysis on a panel of Chinese prefectures of 2002-2010 reveals a U-shaped relationship between a prefecture’s party secretary’s years in office and its average annual PM2.5 level.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Xu, Xu and Xin Jin. 2018. “The Autocratic Roots of Social Distrust.” <em>Journal of Comparative Economics</em>. 46.1: 362-380. <span class="paper-links"><a href="https://xu-xu.net/xuxu/culture.pdf">Pre-print</a>, <a href="https://doi.org/10.1016/j.jce.2017.12.002">Post-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>This paper presents evidence that autocratic culture adversely affects social trust and political participation. We find that individuals whose ancestors migrated from countries with higher autocracy levels are less likely to trust others and to vote in presidential elections in the U.S. The impact of autocratic culture on trust can last for at least three generations while the impact on voting disappears after one generation. These impacts on trust and voting are also significant across Europe.</p><p>We further access the robustness of our findings concerning selection into migration and other confounders such as home countries’ economic conditions, human capital stocks, and the strength of family ties.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Von Schrader, Sarah, Xu Xu, and Susanne M Bruyère. 2014. “Accommodation requests: who is asking for what?.” <em>Rehabilitation Research, Policy, and Education</em>. 28.4: 329-344. <span class="paper-links"><a href="https://doi.org/10.1891/2168-6653.28.4.329">Post-print</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Workplace accommodations are central to improving employment outcomes for people with and without disabilities; this study presents national estimates comparing accommodation requests and receipt as reported by individuals with and without disabilities. Estimates are developed from the May 2012 Current Population Survey Disability Supplement. The findings highlight variability in accommodation requests by disability type and status.</p><p>Accommodation request rates are also presented by occupation and industry groups. As employers voice concerns about the additional burden of employing individuals with disabilities under new regulatory requirements, our findings highlight that 95% of individuals requesting an accommodation were people without disabilities.</p></div>
+          </li>
+        </ol>
+
+        <h3 class="paper-section-title">Working Papers</h3>
+        <ol class="paper-list">
+          <li class="paper">
+            <p class="citation">Xu, Xu. “The Unintrusive Nature of Digital Surveillance and Its Social Consequences” <span class="paper-links"><a href="https://xu-xu.net/xuxu/surveillancesocialcost.pdf">Link</a></span></p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>The world has witnessed an explosion of digital surveillance in recent years. Yet we rarely saw massive surveillance states before the digital age. This paper examines citizens' reactions to digital surveillance versus in-person surveillance in dictatorships to identify potential causes for the expansion of digital surveillance. I argue that digital surveillance is less intrusive than in-person surveillance because it does not involve human intrusion into citizens' private lives.</p><p>I manipulate information about surveillance operations in a field experiment among college students in two regions of China. I find that digital surveillance is less likely to undermine interpersonal trust and regime legitimacy than in-person surveillance. However, both types of surveillance are effective in discouraging political participation.</p><p>In addition, I establish the external validity of the experimental results by using a nationally representative survey and a natural experiment caused by the 2015 Tianjin explosion. Overall, digital surveillance discourages political participation, and the unintrusive nature of digital surveillance suggests that it can expand rapidly without facing much resistance from society.</p></div>
+          </li>
+
+          <li class="paper">
+            <p class="citation">Jin, Xin and Xu Xu. “Incentivizing Corruption: The Unintended Consequence of Bureaucratic Promotions in China.” <span class="paper-links"><a href="https://xu-xu.net/xuxu/corruptionpromotion.pdf">Link</a></span>.</p>
+            <button class="collapsible" style="margin-top: -20px; margin-bottom:10px"><b>Show Abstract</b></button>
+            <div class="content"><p>Conventional wisdom holds that in non-democracies, a strong central state can reward and punish local administrations through a merit-based promotion system, which should restrain corruption. But much evidence shows that rampant corruption coexists with powerful central governments. This study resolves this puzzle by incorporating bribes in a tournament model.</p><p>Our model predicts that when bribes are more important than performance in superiors’ total gain, or if there is a lack of serious punishments for wrong-doing, or an increase in promotion gain, promotion can incentivize corruption.</p><p>Using a fuzzy regression discontinuity design exploiting exogenous variations in officials’ likelihood of promotion from a mandatory age cutoff for bureaucratic promotion in China, combined with a unique biographical database of prefecture party secretaries and novel measures of corruption, we find that promotions encourage corruption in China.</p><p>Moreover, prefecture party secretaries are more corrupt if their provincial superiors are connected to central factions, suggesting that upper-level factionalism is one of the disincentives that breaks down lower-level meritocracy.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="two-col">
+        <h2>Teaching</h2>
+        <div>
+          <p>I teach courses in comparative politics, political economy, authoritarian politics, and research methodology.</p>
+          <ul class="compact-list">
+            <li>SPI403/404: Digital Authoritarianism</li>
+            <li>POL434: Political Economy of China: Past and Present</li>
+            <li>POL376 & SPI317: Dictators and Their Demise</li>            
+            <li>POL300: Designing Quantitative and Qualitative Political Research</li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>© Xu Xu</span>
+        <span>Site hosted by GitHub</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
 </html>
