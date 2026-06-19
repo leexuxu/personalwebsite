@@ -6,13 +6,13 @@ body {
   padding:50px;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.75em;
-  color:#444;
+  color:#333;
   letter-spacing: .01em;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#444;
+  color:#333;
   margin:0 0 20px;
 }
 
@@ -30,12 +30,12 @@ h1 {
 }
 
 h2 {
-  color:#444;
+  color:#333;
   font-weight: bold;
 }
 
 h3, h4, h5, h6 {
-  color:#444;
+  color:#333;
   font-weight: bold;
 }
 
@@ -98,12 +98,12 @@ th, td {
 }
 
 dt {
-  color:#444;
+  color:#333;
   font-weight:500;
 }
 
 th {
-  color:#444;
+  color:#333;
 }
 
 img {
@@ -275,6 +275,6 @@ footer {
   body {
     padding:0.4in;
     font-size:12pt;
-    color:#444;
+    color:#333;
   }
 }
